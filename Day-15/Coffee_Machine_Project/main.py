@@ -110,7 +110,7 @@ def check_money(beverage_cost, money_received):
     """Checks if the given money is sufficient
     to pay for the chosen beverage"""
 
-    if money >= beverage_cost:
+    if money_received >= beverage_cost:
         change = round(money_received - beverage_cost, 2)
         print(f"Here is ${change} in change.")
         global profit
@@ -163,7 +163,7 @@ while machine_on:
         beverage = menu[clients_choice]
         if check_resources(beverage['ingredients']):
             payment = money()
-            if check_money(payment, beverage['cost']):
+            if check_money(beverage['cost'], payment):
                 make_coffee(clients_choice, beverage['ingredients'])
 
 
